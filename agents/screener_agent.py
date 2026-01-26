@@ -1,4 +1,5 @@
 from typing import Dict, Any
+import json
 from .base_agent import BaseAgent
 
 
@@ -19,11 +20,14 @@ class ScreenerAgent(BaseAgent):
         """Screen the candidate"""
         print("👥 Screener: Conducting initial screening")
 
-        workflow_context = eval(messages[-1]["content"])
-        screening_results = self._query_ollama(str(workflow_context))
+        try:
+            workflow_context = json.loads(messages[-1]["content"])
+        except json.JSONDecodeError:
+            workflow_context = {}
+        screening_results = self._query_ollama(json.dumps(workflow_context))
 
         return {
             "screening_report": screening_results,
-            "screening_timestamp": "2024-03-14",
+            "screening_timestamp": self.now_iso(),
             "screening_score": 85,
         }

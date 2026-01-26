@@ -1,4 +1,5 @@
 from typing import Dict, Any
+import json
 from .base_agent import BaseAgent
 from .extractor_agent import ExtractorAgent
 from .analyzer_agent import AnalyzerAgent
@@ -44,7 +45,7 @@ class OrchestratorAgent(BaseAgent):
         try:
             # Extract resume information
             extracted_data = await self.extractor.run(
-                [{"role": "user", "content": str(resume_data)}]
+                [{"role": "user", "content": json.dumps(resume_data)}]
             )
             workflow_context.update(
                 {"extracted_data": extracted_data, "current_stage": "analysis"}
@@ -52,7 +53,7 @@ class OrchestratorAgent(BaseAgent):
 
             # Analyze candidate profile
             analysis_results = await self.analyzer.run(
-                [{"role": "user", "content": str(extracted_data)}]
+                [{"role": "user", "content": json.dumps(extracted_data)}]
             )
             workflow_context.update(
                 {"analysis_results": analysis_results, "current_stage": "matching"}
@@ -60,7 +61,7 @@ class OrchestratorAgent(BaseAgent):
 
             # Match with jobs
             job_matches = await self.matcher.run(
-                [{"role": "user", "content": str(analysis_results)}]
+                [{"role": "user", "content": json.dumps(analysis_results)}]
             )
             workflow_context.update(
                 {"job_matches": job_matches, "current_stage": "screening"}
@@ -68,7 +69,7 @@ class OrchestratorAgent(BaseAgent):
 
             # Screen candidate
             screening_results = await self.screener.run(
-                [{"role": "user", "content": str(workflow_context)}]
+                [{"role": "user", "content": json.dumps(workflow_context)}]
             )
             workflow_context.update(
                 {
@@ -79,7 +80,7 @@ class OrchestratorAgent(BaseAgent):
 
             # Generate recommendations
             final_recommendation = await self.recommender.run(
-                [{"role": "user", "content": str(workflow_context)}]
+                [{"role": "user", "content": json.dumps(workflow_context)}]
             )
             workflow_context.update(
                 {"final_recommendation": final_recommendation, "status": "completed"}

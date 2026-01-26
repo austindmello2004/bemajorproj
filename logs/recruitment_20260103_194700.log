@@ -1,0 +1,26 @@
+2026-01-03 19:48:20,550 - AI_Recruiter - ERROR - Schedule validation failed: Object of type Timestamp is not JSON serializable
+Traceback (most recent call last):
+  File "/home/austin-dmello/fccrepomajorproj/swarm-writer-agents/ai-recruiter-agency/app.py", line 289, in render_schedule_validation
+    schedule_id = compliance_db.add_schedule(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/austin-dmello/fccrepomajorproj/swarm-writer-agents/ai-recruiter-agency/db/compliance_database.py", line 115, in add_schedule
+    cur.execute(query, (name, source_type, json.dumps(raw_payload), json.dumps(metadata or {})))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Timestamp is not JSON serializable
+2026-01-03 19:49:05,183 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+2026-01-03 19:49:24,937 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-03 19:49:28,030 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-03 19:50:05,423 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-03 19:50:11,023 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-03 19:51:34,774 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"

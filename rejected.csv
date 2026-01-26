@@ -1,0 +1,16 @@
+name,gender,salary,day,shift_start_time,shift_end_time
+Alice,Female,50000,Monday,16:00,23:00
+Carol,Female,52000,Monday,15:00,22:30
+Bob,Male,48000,Monday,07:00,21:30
+Dave,Male,47000,Monday,11:00,22:00
+Eve,Female,51000,Monday,08:00,18:00
+Frank,Male,46000,Monday,14:00,23:00
+Grace,Female,53000,Monday,11:00,20:30
+Heidi,Female,54000,Monday,07:00,15:00
+Ivan,Male,45000,Monday,15:00,21:00
+Judy,Female,55000,Monday,09:30,20:30
+Mallory,Male,44000,Monday,16:00,22:30
+Oscar,Male,43000,Monday,17:00,23:30
+Peggy,Female,56000,Monday,10:30,20:00
+Sybil,Female,57000,Monday,11:30,19:00
+Trent,Male,42000,Monday,18:00,21:30

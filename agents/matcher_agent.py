@@ -38,7 +38,7 @@ class MatcherAgent(BaseAgent):
             print(f"Error parsing analysis results: {e}")
             return {
                 "matched_jobs": [],
-                "match_timestamp": "2024-03-14",
+                "match_timestamp": self.now_iso(),
                 "number_of_matches": 0,
             }
 
@@ -48,7 +48,7 @@ class MatcherAgent(BaseAgent):
             print("No skills analysis provided in the input.")
             return {
                 "matched_jobs": [],
-                "match_timestamp": "2024-03-14",
+                "match_timestamp": self.now_iso(),
                 "number_of_matches": 0,
             }
 
@@ -98,7 +98,7 @@ class MatcherAgent(BaseAgent):
 
         return {
             "matched_jobs": scored_jobs[:3],  # Top 3 matches
-            "match_timestamp": "2024-03-14",
+            "match_timestamp": self.now_iso(),
             "number_of_matches": len(scored_jobs),
         }
 

@@ -1,4 +1,5 @@
 from typing import Dict, Any
+import json
 from .base_agent import BaseAgent
 
 
@@ -18,11 +19,14 @@ class RecommenderAgent(BaseAgent):
         """Generate final recommendations"""
         print("💡 Recommender: Generating final recommendations")
 
-        workflow_context = eval(messages[-1]["content"])
-        recommendation = self._query_ollama(str(workflow_context))
+        try:
+            workflow_context = json.loads(messages[-1]["content"])
+        except json.JSONDecodeError:
+            workflow_context = {}
+        recommendation = self._query_ollama(json.dumps(workflow_context))
 
         return {
             "final_recommendation": recommendation,
-            "recommendation_timestamp": "2025-03-14",
+            "recommendation_timestamp": self.now_iso(),
             "confidence_level": "high",
         }

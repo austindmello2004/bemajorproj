@@ -1,0 +1,5 @@
+[
+  { "employee_name": "Alice", "shift_end_time": "22:00", "gender": "F" },
+  { "employee_name": "Bob", "shift_end_time": "21:30", "gender": "M" },
+  { "employee_name": "Carol", "shift_end_time": "21:30", "gender": "F" }
+]

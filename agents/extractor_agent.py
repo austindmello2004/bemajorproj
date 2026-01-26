@@ -1,5 +1,6 @@
 from typing import Dict, Any
-from pdfminer.high_level import extract_text # pip install pdfminer.six
+import json
+from pdfminer.high_level import extract_text  # pip install pdfminer.six
 from .base_agent import BaseAgent
 
 class ExtractorAgent(BaseAgent):
@@ -15,7 +16,10 @@ class ExtractorAgent(BaseAgent):
         """Process the resume and extract information"""
         print("📄 Extractor: Processing resume")
         
-        resume_data = eval(messages[-1]["content"])
+        try:
+            resume_data = json.loads(messages[-1]["content"])
+        except json.JSONDecodeError:
+            resume_data = {}
         
         # Extract text from PDF
         if resume_data.get("file_path"):
@@ -29,7 +33,8 @@ class ExtractorAgent(BaseAgent):
         return {
             "raw_text": raw_text,
             "structured_data": extracted_info,
-            "extraction_status": "completed"
+            "extraction_status": "completed",
+            "extraction_timestamp": self.now_iso(),
         }
 
 

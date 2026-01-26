@@ -1,0 +1,17 @@
+[
+  { "name": "Alice", "gender": "Female", "salary": 50000, "day": "Monday", "shift_start_time": "16:00", "shift_end_time": "23:00" },   
+  { "name": "Carol", "gender": "Female", "salary": 52000, "day": "Monday", "shift_start_time": "15:00", "shift_end_time": "22:30" },  
+  { "name": "Bob", "gender": "Male", "salary": 48000, "day": "Monday", "shift_start_time": "07:00", "shift_end_time": "21:30" },      
+  { "name": "Dave", "gender": "Male", "salary": 47000, "day": "Monday", "shift_start_time": "11:00", "shift_end_time": "22:00" },
+  { "name": "Eve", "gender": "Female", "salary": 51000, "day": "Monday", "shift_start_time": "08:00", "shift_end_time": "18:00" },
+  { "name": "Frank", "gender": "Male", "salary": 46000, "day": "Monday", "shift_start_time": "14:00", "shift_end_time": "23:00" },
+  { "name": "Grace", "gender": "Female", "salary": 53000, "day": "Monday", "shift_start_time": "11:00", "shift_end_time": "20:30" },
+  { "name": "Heidi", "gender": "Female", "salary": 54000, "day": "Monday", "shift_start_time": "07:00", "shift_end_time": "15:00" },
+  { "name": "Ivan", "gender": "Male", "salary": 45000, "day": "Monday", "shift_start_time": "15:00", "shift_end_time": "21:00" },
+  { "name": "Judy", "gender": "Female", "salary": 55000, "day": "Monday", "shift_start_time": "09:30", "shift_end_time": "20:30" },
+  { "name": "Mallory", "gender": "Male", "salary": 44000, "day": "Monday", "shift_start_time": "16:00", "shift_end_time": "22:30" },
+  { "name": "Oscar", "gender": "Male", "salary": 43000, "day": "Monday", "shift_start_time": "17:00", "shift_end_time": "23:30" },
+  { "name": "Peggy", "gender": "Female", "salary": 56000, "day": "Monday", "shift_start_time": "10:30", "shift_end_time": "20:00" },
+  { "name": "Sybil", "gender": "Female", "salary": 57000, "day": "Monday", "shift_start_time": "11:30", "shift_end_time": "19:00" },
+  { "name": "Trent", "gender": "Male", "salary": 42000, "day": "Monday", "shift_start_time": "18:00", "shift_end_time": "21:30" }
+]

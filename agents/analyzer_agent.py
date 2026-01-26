@@ -1,4 +1,5 @@
 from typing import Dict, Any
+import json
 from .base_agent import BaseAgent
 
 
@@ -21,7 +22,10 @@ class AnalyzerAgent(BaseAgent):
         """Analyze the extracted resume data"""
         print("🔍 Analyzer: Analyzing candidate profile")
 
-        extracted_data = eval(messages[-1]["content"])
+        try:
+            extracted_data = json.loads(messages[-1]["content"])
+        except json.JSONDecodeError:
+            extracted_data = {}
 
         # Get structured analysis from Ollama
         analysis_prompt = f"""
@@ -60,7 +64,7 @@ class AnalyzerAgent(BaseAgent):
 
         return {
             "skills_analysis": parsed_results,
-            "analysis_timestamp": "2024-03-14",
+            "analysis_timestamp": self.now_iso(),
             "confidence_score": 0.85 if "error" not in parsed_results else 0.5,
         }
 
